@@ -3,380 +3,454 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Heri Stilus is a print-first holding company. Active imprint: Funny Pages Press." />
-  <title>Heri Stilus</title>
+  <title>Heri Stilus — Current Issues</title>
   <style>
-    :root{
-      --bg:#ffffff;
-      --fg:#0a0a0a;
-      --muted:#444;
-      --hair:#e7e7e7;
-      --chip:#f3f3f3;
-      --max: 980px;
+    /* ============================================
+       TYPOGRAPHY & FOUNDATION
+       ============================================ */
+    :root {
+      --rule: 1px solid rgba(0,0,0,.18);
+      --rule-heavy: 2px solid rgba(0,0,0,.3);
+      --serif: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --bg: #fefef8;
+      --text: #1a1a1a;
+      --meta: #666;
+      --accent: #2c5f2d;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      letter-spacing: .1px;
-    }
-    a{color:inherit; text-decoration:none}
-    a:hover{text-decoration:underline}
 
-    .wrap{
-      max-width: var(--max);
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ============================================
+       LAYOUT GRID
+       ============================================ */
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    .skip{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{
-      left:20px; top:20px; width:auto; height:auto; padding:10px 12px;
-      background:#000; color:#fff; z-index:9999;
-    }
-
-    .masthead{
-      position:sticky; top:0;
-      background:#fff;
-      border-bottom:1px solid var(--hair);
-      z-index:10;
-    }
-    .masthead .wrap{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 20px;
+    /* ============================================
+       MASTHEAD
+       ============================================ */
+    .masthead {
+      border-bottom: var(--rule-heavy);
+      padding: 32px 0 24px;
+      margin-bottom: 24px;
     }
 
-    .brand{display:flex; flex-direction:column; gap:2px}
-    .mark{
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:14px;
-    }
-    .submark{font-size:12px; color:var(--muted)}
-
-    .nav{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .nav a{padding:6px 2px}
-    .nav a:hover{color:var(--fg)}
-
-    .hero{padding: 26px 0 10px}
-    h1{
-      font-size: 32px;
-      line-height:1.15;
-      margin: 0 0 10px;
-      letter-spacing:-.3px;
-    }
-    .lede{
-      font-size: 17px;
-      color: var(--muted);
-      max-width: 75ch;
-      margin: 0 0 14px;
+    .masthead__title {
+      font-family: var(--sans);
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      line-height: 1;
     }
 
-    .meta{display:flex; gap:8px; flex-wrap:wrap}
-    .chip{
-      border:1px solid var(--hair);
-      background:var(--chip);
-      padding: 6px 10px;
-      border-radius: 999px;
+    .masthead__tagline {
+      font-family: var(--sans);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--meta);
+      margin: 0;
+    }
+
+    .masthead__date {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--meta);
+      margin-top: 12px;
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .nav {
+      display: flex;
+      gap: 24px;
+      padding: 12px 0;
+      border-bottom: var(--rule);
+      margin-bottom: 32px;
+      font-family: var(--sans);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav a {
+      border: none;
+      padding-bottom: 2px;
+    }
+
+    .nav a:hover {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* ============================================
+       DOCTRINE BOX (STATEMENT OF PURPOSE)
+       ============================================ */
+    .doctrine {
+      border: var(--rule-heavy);
+      padding: 24px;
+      margin-bottom: 48px;
+      background: white;
+    }
+
+    .doctrine h2 {
+      font-family: var(--sans);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 16px;
+      color: var(--meta);
+    }
+
+    .doctrine__principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 15px;
+    }
+
+    .doctrine__principle {
+      padding-left: 16px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* ============================================
+       CURRENT ISSUES GRID
+       ============================================ */
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .issue-card {
+      border: var(--rule);
+      background: white;
+      padding: 0;
+      transition: box-shadow 0.2s;
+    }
+
+    .issue-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    }
+
+    .issue-card__header {
+      padding: 20px;
+      border-bottom: var(--rule);
+    }
+
+    .issue-card__imprint {
+      font-family: var(--sans);
       font-size: 12px;
-      color:#222;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--meta);
+      margin: 0 0 8px;
     }
 
-    .callout{
-      margin-top: 14px;
-      border:1px solid var(--hair);
-      border-radius: 10px;
-      padding: 12px 14px;
-      background: #fff;
+    .issue-card__title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      line-height: 1.2;
     }
-    .callout-title{
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:11px;
-      color: var(--muted);
-      margin-bottom: 6px;
+
+    .issue-card__meta {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--meta);
     }
-    .callout-body{
-      font-size:14px;
-      color:#111;
+
+    .issue-card__body {
+      padding: 20px;
     }
-    .callout-body a{
-      color: inherit;
+
+    .issue-card__description {
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0 0 16px;
+      color: #333;
+    }
+
+    .issue-card__sections {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .issue-card__sections li {
+      padding: 6px 0;
+      border-bottom: 1px dotted rgba(0,0,0,.1);
+    }
+
+    .issue-card__sections li:last-child {
+      border: none;
+    }
+
+    .issue-card__footer {
+      padding: 16px 20px;
+      border-top: var(--rule);
+      display: flex;
+      gap: 16px;
+      font-family: var(--sans);
+      font-size: 13px;
+    }
+
+    .issue-card__footer a {
+      border: none;
       text-decoration: underline;
     }
 
-    hr{
-      border:0;
-      border-top:1px solid var(--hair);
-      margin: 18px 0;
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      border-top: var(--rule-heavy);
+      padding: 32px 0;
+      margin-top: 64px;
     }
 
-    .section{padding: 12px 0 18px}
-    h2{
-      font-size: 14px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      margin: 0 0 12px;
-    }
-    h3{
-      margin: 0 0 8px;
-      font-size: 14px;
-      letter-spacing:.02em;
-    }
-    p{margin: 0 0 10px}
-
-    .card{
-      border: 1px solid var(--hair);
-      border-radius: 10px;
-      padding: 14px;
-      background:#fff;
+    .footer__rules {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 16px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--meta);
+      flex-wrap: wrap;
     }
 
-    .grid-2{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 12px;
+    .footer__rules span::before {
+      content: "→ ";
     }
 
-    @media (max-width: 860px){
-      .grid-2, .grid-3{grid-template-columns: 1fr;}
-      h1{font-size: 26px;}
+    .footer__links {
+      display: flex;
+      gap: 16px;
+      font-family: var(--sans);
+      font-size: 13px;
     }
 
-    ul{margin: 10px 0 0 18px}
-    li{margin: 6px 0}
-
-    .cols{
-      columns: 2;
-      column-gap: 20px;
-    }
-    @media (max-width: 640px){ .cols{columns:1;} }
-
-    .spec{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 6px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid var(--hair);
-    }
-    .label{
-      display:inline-block;
-      min-width: 90px;
-      color: var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size: 11px;
-      margin-right: 8px;
+    .footer__links a {
+      border: none;
+      text-decoration: underline;
     }
 
-    .small{font-size: 12px}
-    .muted{color: var(--muted)}
+    /* ============================================
+       PRINT STYLES
+       ============================================ */
+    @media print {
+      body {
+        background: white;
+      }
+      .nav, .footer__links {
+        display: none;
+      }
+      .issue-card {
+        page-break-inside: avoid;
+      }
+    }
 
-    .footer{
-      margin: 16px 0 6px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      border-top:1px solid var(--hair);
-      padding-top: 12px;
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 768px) {
+      .masthead__title {
+        font-size: 36px;
+      }
+      
+      .issues-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doctrine__principles {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
     }
   </style>
 </head>
-
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#content" style="position:absolute;left:-9999px;">Skip to content</a>
 
-  <header class="masthead">
-    <div class="wrap">
-      <div class="brand">
-        <div class="mark">HERI STILUS</div>
-        <div class="submark">Print-first holding company · Active imprint: Funny Pages Press</div>
-      </div>
+  <div class="container">
+    <header class="masthead">
+      <h1 class="masthead__title">HERI STILUS</h1>
+      <p class="masthead__tagline">A Holding Company for Disposable Intelligence</p>
+      <p class="masthead__date">Wednesday, December 24, 2025</p>
+    </header>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#doctrine">Doctrine</a>
-        <a href="#imprints">Imprints</a>
-        <a href="#funny-pages">Funny Pages</a>
-        <a href="#operating">Operating</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/imprints/">Imprints</a>
+      <a href="/archive/">Archive</a>
+      <a href="/about/">How This Works</a>
+      <a href="/subscribe/">Subscribe</a>
+      <a href="/contact/">Contact</a>
+    </nav>
 
-  <main id="main" class="wrap">
-    <section class="hero">
-      <h1>We record what has just occurred—before it hardens into myth or dissolves into noise.</h1>
-      <p class="lede">
-        We do not chase immediacy. We publish print-first artifacts meant to be handled, argued with, kept, and returned to.
-      </p>
-
-      <div class="meta">
-        <div class="chip">Artifact over feed</div>
-        <div class="chip">Judgment over velocity</div>
-        <div class="chip">Memory over prediction</div>
-      </div>
-
-      <div class="callout">
-        <div class="callout-title">Current imprint</div>
-        <div class="callout-body">
-          <strong>Funny Pages Press</strong> — weekly large-print puzzle paper for senior living communities, senior centers, and clubs.
-          <a href="#funny-pages">Details</a>.
-        </div>
-      </div>
-    </section>
-
-    <hr />
-
-    <section id="doctrine" class="section">
-      <h2>Doctrine</h2>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Compressed spine</h3>
-          <p><strong>We give yesterday a legible form.</strong></p>
-          <p class="small muted">Clarity without haste. Print first. Durable by default.</p>
-        </div>
-
-        <div class="card">
-          <h3>Negative doctrine</h3>
-          <ul>
-            <li>We do not publish prediction as authority.</li>
-            <li>We do not optimize for outrage, dunking, or belonging.</li>
-            <li>We do not compete on speed or hot takes.</li>
-            <li>We do not require belief—only attention.</li>
-            <li>We do not sacrifice clarity to be “timely.”</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>How we write</h3>
-        <ul class="cols">
-          <li>Concrete nouns</li>
-          <li>Verbs of use, not vision</li>
-          <li>Conditional phrasing (“holds if,” “fails when”)</li>
-          <li>Sources and verification paths</li>
-          <li>Templates and repeatable formats</li>
-        </ul>
-      </div>
-    </section>
-
-    <hr />
-
-    <section id="imprints" class="section">
-      <h2>Imprints</h2>
-
-      <div class="card">
-        <h3>Active + future (conditional)</h3>
-        <p class="muted">
-          Heri Stilus may pilot multiple publications under a common operating discipline:
-          stable cadence, predictable production, clear buyer, and clean shutdown rules.
+    <main id="content">
+      <section class="doctrine">
+        <h2>Operating Principles</h2>
+        <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6;">
+          We publish dated objects. No feeds, no trending, no urgency theater. 
+          Each issue is a discrete artifact designed for orientation over stimulation.
         </p>
+        <div class="doctrine__principles">
+          <div class="doctrine__principle">Artifact over feed</div>
+          <div class="doctrine__principle">Orientation over urgency</div>
+          <div class="doctrine__principle">Pattern over prediction</div>
+          <div class="doctrine__principle">Archival by design</div>
+          <div class="doctrine__principle">Disposable dignity</div>
+        </div>
+      </section>
+
+      <h2 style="font-family: var(--sans); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 24px; color: var(--meta);">Current Issues</h2>
+
+      <div class="issues-grid">
+        <!-- ALMANAC -->
+        <article class="issue-card">
+          <div class="issue-card__header">
+            <p class="issue-card__imprint">Bi-Weekly Almanac</p>
+            <h3 class="issue-card__title">Vol. 1, No. 1</h3>
+            <p class="issue-card__meta">February 1, 2026 • 16 pages</p>
+          </div>
+          <div class="issue-card__body">
+            <p class="issue-card__description">
+              Seasonal intelligence, local record, pattern recognition. 
+              A newspaper for orientation: what recurs, what changes, what persists.
+            </p>
+            <ul class="issue-card__sections">
+              <li>Local Record</li>
+              <li>Pattern Desk</li>
+              <li>Reference & Explainers</li>
+              <li>County Ledger</li>
+              <li>If They Were Still Here</li>
+            </ul>
+          </div>
+          <div class="issue-card__footer">
+            <a href="/imprints/almanac/issues/2026/2026-02-01-vol-1-no-1/">Read Issue</a>
+            <a href="/imprints/almanac/issues/2026/2026-02-01-vol-1-no-1/issue.pdf">PDF</a>
+            <a href="/imprints/almanac/">About</a>
+          </div>
+        </article>
+
+        <!-- COMICS & ILLUSTRATED HUMOR -->
+        <article class="issue-card">
+          <div class="issue-card__header">
+            <p class="issue-card__imprint">Comics & Illustrated Humor</p>
+            <h3 class="issue-card__title">Issue 1</h3>
+            <p class="issue-card__meta">March 15, 2026 • 24 pages</p>
+          </div>
+          <div class="issue-card__body">
+            <p class="issue-card__description">
+              Sequential art, illustrated essays, single-panel work. 
+              Visual storytelling that rewards patience and repeat viewing.
+            </p>
+            <ul class="issue-card__sections">
+              <li>Strip Rotation</li>
+              <li>Illustrated Essays</li>
+              <li>One-Page Pieces</li>
+              <li>Local Legends (Geo-Hunt)</li>
+              <li>Tear-Out Features</li>
+            </ul>
+          </div>
+          <div class="issue-card__footer">
+            <a href="/imprints/comics/issues/2026/2026-03-15-issue-1/">Read Issue</a>
+            <a href="/imprints/comics/issues/2026/2026-03-15-issue-1/issue.pdf">PDF</a>
+            <a href="/imprints/comics/">About</a>
+          </div>
+        </article>
+
+        <!-- FUNNY PAGES PRESS -->
+        <article class="issue-card">
+          <div class="issue-card__header">
+            <p class="issue-card__imprint">Funny Pages Press</p>
+            <h3 class="issue-card__title">Week 1</h3>
+            <p class="issue-card__meta">January 5, 2026 • 8 pages</p>
+          </div>
+          <div class="issue-card__body">
+            <p class="issue-card__description">
+              Puzzles, word games, logic grids, light illustrations. 
+              Disposable by design. Weekly repetition as structure.
+            </p>
+            <ul class="issue-card__sections">
+              <li>Crossword</li>
+              <li>Logic Grid</li>
+              <li>Word Ladder</li>
+              <li>Light Illustrations</li>
+              <li>Weekly Oddities</li>
+            </ul>
+          </div>
+          <div class="issue-card__footer">
+            <a href="/imprints/funny-pages/issues/2026/2026-01-05-week-1/">Read Issue</a>
+            <a href="/imprints/funny-pages/issues/2026/2026-01-05-week-1/issue.pdf">PDF</a>
+            <a href="/imprints/funny-pages/">About</a>
+          </div>
+        </article>
       </div>
-    </section>
 
-    <section id="funny-pages" class="section">
-      <h2>Funny Pages Press</h2>
-
-      <div class="card">
-        <p>
-          <strong>Weekly large-print puzzle paper</strong> for senior living communities, senior centers, and clubs.
-          Built for legibility, routine, and group use. <strong>No news. No politics.</strong>
+      <section style="border-top: var(--rule); padding-top: 32px; margin-top: 32px;">
+        <h2 style="font-family: var(--sans); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 16px; color: var(--meta);">
+          What This Is
+        </h2>
+        <p style="max-width: 720px; font-size: 15px; line-height: 1.7; margin: 0;">
+          Heri Stilus operates three imprints, each producing dated, finite publications. 
+          We do not publish feeds, trending content, or speculative analysis. 
+          Every issue is archived permanently. Every page is designed to print cleanly. 
+          This is a holding company for work that values restraint, structure, and durability 
+          over novelty, virality, or algorithmic distribution.
         </p>
+      </section>
+    </main>
 
-        <div class="spec">
-          <div><span class="label">Cadence</span> Weekly</div>
-          <div><span class="label">Format</span> 8–12 pages, large print, B/W</div>
-          <div><span class="label">Content</span> Licensed core + commissioned/PD rotation</div>
-          <div><span class="label">Buyer</span> Facilities, centers, private clubs</div>
-          <div><span class="label">Status</span> Pilot preparation (licensing + print vendor + first commitments)</div>
-        </div>
-
-        <p class="small muted">
-          Pilot-first. Expansion follows repeatability, not ambition.
-        </p>
+    <footer class="footer">
+      <div class="footer__rules">
+        <span>No feeds, only issues</span>
+        <span>No urgency, only cadence</span>
+        <span>No predictions, only patterns</span>
+        <span>Archival by default</span>
       </div>
-    </section>
-
-    <hr />
-
-    <section id="operating" class="section">
-      <h2>Operating</h2>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Print is primary</h3>
-          <p>Digital supports operations only. No platform dependency.</p>
-        </div>
-        <div class="card">
-          <h3>Pilots have teeth</h3>
-          <p>Fixed duration, fixed volume, explicit success criteria. Closure is allowed.</p>
-        </div>
-        <div class="card">
-          <h3>Contract-first labor</h3>
-          <p>Remote contractors, clear deliverables, redundancy over heroics.</p>
-        </div>
+      <div class="footer__links">
+        <a href="/archive/">Full Archive</a>
+        <a href="/about/">How This Works</a>
+        <a href="/subscribe/">Subscribe</a>
+        <a href="/legal/">Legal & Accessibility</a>
+        <a href="/contact/">Contact</a>
       </div>
-
-      <div class="card">
-        <h3>Sales posture</h3>
-        <ul>
-          <li>Low-pressure, trust-based introductions</li>
-          <li>No quotas for contractors</li>
-          <li>Work scales to capacity (“what you can handle”)</li>
-          <li>Samples shipped from HQ; contributors carry no inventory</li>
-        </ul>
-      </div>
-    </section>
-
-    <hr />
-
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>For printing, distribution, facility pilots, or contracting:</p>
-        
-
-        <div class="spec">
-          <div><span class="label">Email</span> mja@heristilus.com</div>
-          
-         
-        </div>
-      </div>
-
-      <footer class="footer">
-        <div>© <span id="year"></span> Heri Stilus LLC. All rights reserved.</div>
-        <div class="muted small">Print-first publishing holding company.</div>
-      </footer>
-    </section>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    </footer>
+  </div>
 </body>
 </html>
